@@ -31,22 +31,26 @@ class EasyPHPTranslate
 
     private function execute()
     {
-        $postData = array(
-            'key' => $this->apiKey,
-            'q' => ($this->originalText),
-            'source' => $this->sourceLanguage,
-            'target' => $this->targetLanguage,
-        );
         $handle = curl_init(self::END_POINT);
         curl_setopt($handle, CURLOPT_POST, 1);
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($handle, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($handle, CURLOPT_POSTFIELDS, $this->postData());
         curl_setopt($handle, CURLOPT_HTTPHEADER, array('X-HTTP-Method-Override: GET'));
         $response = curl_exec($handle);
         $responseDecoded = json_decode($response, true);
         curl_close($handle);
         $this->translatedText = $responseDecoded['data']['translations'][0]['translatedText'];
+    }
+
+    private function postData(): array
+    {
+        return array(
+            'key' => $this->apiKey,
+            'q' => ($this->originalText),
+            'source' => $this->sourceLanguage,
+            'target' => $this->targetLanguage,
+        );
     }
 
     public function wordCount($input)

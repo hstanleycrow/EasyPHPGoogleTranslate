@@ -1,5 +1,23 @@
 {
     "name": "easyphptranslate/easyphptranslate",
+    "description": "PHP class to use Google Translate API",
+    "keywords": [
+        "google",
+        "translate",
+        "translator",
+        "php",
+        "translating"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/hstanleycrow/EasyPHPGoogleTranslate",
+    "authors": [
+        {
+            "name": "Harold Rivas AKA Harold Crow",
+            "email": "holamundo@microaplicaciones.com",
+            "homepage": "https://www.microaplicaciones.com/",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "vlucas/phpdotenv": "^5.5"
     },

@@ -29,7 +29,7 @@ class EasyPHPTranslate
         return $this->translatedText;
     }
 
-    private function execute()
+    private function execute(): void
     {
         $handle = curl_init(self::END_POINT);
         curl_setopt($handle, CURLOPT_POST, 1);
@@ -53,7 +53,7 @@ class EasyPHPTranslate
         );
     }
 
-    public function wordCount($input)
+    public function wordCount($input): int
     {
         $input = strip_tags($input);
         $input = preg_split("/[\s,.]+/", $input);

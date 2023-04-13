@@ -112,3 +112,18 @@ He probado esta clase en estas versiones de PHP, asi qaue si tienes una version 
 | PHP 8.0 | 
 | PHP 8.1 |
 | PHP 8.2 |
+
+## Support
+
+<a href="https://www.buymeacoffee.com/haroldcrow" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+## License
+
+MIT
+
+---
+
+> [www.hablemosdeseo.net](https://www.hablemosdeseo.net) &nbsp;&middot;&nbsp;
+> GitHub [@hstanleycrow](https://github.com/hstanleycrow) &nbsp;&middot;&nbsp;
+> Twitter [@harold_crow](https://twitter.com/harold_crow)
+

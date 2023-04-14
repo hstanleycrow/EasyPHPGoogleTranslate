@@ -2,6 +2,8 @@
 
 namespace App;
 
+use CurlHandle;
+
 class EasyPHPTranslate
 {
     const ENDPOINT = 'https://translation.googleapis.com/language/translate/v2';
@@ -11,10 +13,13 @@ class EasyPHPTranslate
     private string $targetLanguage;
     private string $originalText;
     private string $translatedText;
+    private CurlRequest $httpRequest;
 
-    function __construct(string $apiKey)
+    function __construct(string $apiKey, CurlRequest $httpRequest)
     {
         $this->apiKey = $apiKey;
+        $this->httpRequest = $httpRequest;
+        $this->httpRequest->url(self::ENDPOINT);
     }
 
     public function translate(string $text, string $targetLanguage, ?string $sourceLanguage = null): string
@@ -31,13 +36,12 @@ class EasyPHPTranslate
 
     private function execute(): void
     {
-        $curlRequest = new CurlRequest(self::ENDPOINT);
-        $curlRequest->setPost(true);
-        $curlRequest->setPostData($this->postData());
-        $curlRequest->setHttpHeader(['X-HTTP-Method-Override: GET']);
-        $curlRequest->execute();
-        if ($curlRequest->isSuccessful()) :
-            $response = $curlRequest->getResult();
+        $this->httpRequest->setPost(true);
+        $this->httpRequest->setPostData($this->postData());
+        $this->httpRequest->setHttpHeader(['X-HTTP-Method-Override: GET']);
+        $this->httpRequest->execute();
+        if ($this->httpRequest->isSuccessful()) :
+            $response = $this->httpRequest->getResult();
             $responseDecoded = json_decode($response, true);
             $this->translatedText = $responseDecoded['data']['translations'][0]['translatedText'];
         endif;

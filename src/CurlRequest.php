@@ -16,7 +16,7 @@ class CurlRequest
     private mixed $result;
     private bool $completed;
 
-    public function __construct(string $url)
+    public function __construct(?string $url = "")
     {
         $this->url = $url;
         $this->post = false;
@@ -64,5 +64,15 @@ class CurlRequest
     public function getResult(): mixed
     {
         return $this->result;
+    }
+
+    /**
+     * Set the value of url
+     *
+     * @return  self
+     */
+    public function url($url): void
+    {
+        $this->url = $url;
     }
 }

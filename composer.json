@@ -1,5 +1,5 @@
 {
-    "name": "easyphptranslate/easyphptranslate",
+    "name": "hstanleycrow/easyphptranslate",
     "description": "PHP class to use Google Translate API",
     "keywords": [
         "google",
@@ -19,7 +19,8 @@
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+        "hstanleycrow/easyphpcurlrequest": "^1.0"
     },
     "autoload": {
         "psr-4": {

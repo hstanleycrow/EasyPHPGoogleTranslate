@@ -5,6 +5,20 @@ Easy Google translate API V2 client for PHP
 This project abstract the google translate api version 2.0 in PHP. 
 This is a easy way to implement and use the Google API Translations into PHP and his spirit is to keep it simple and easy to use.
 
+## How to install
+```bash
+# Clone this repository
+$ git clone https://github.com/hstanleycrow/EasyPHPGoogleTranslate
+
+# install libraries
+$ composer update
+```
+or 
+```bash
+# Install using composer
+$ composer require hstanleycrow/easyphptranslate
+```
+
 ## Examples of usage
 This examples are using [DotEnv](https://github.com/vlucas/phpdotenv) to configure the APIKey, but you can setup it as you wwant.
 

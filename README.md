@@ -75,6 +75,18 @@ I have tested this class only in this PHP versions. So, if you have an older ver
 Este proyecto abstraee la API de traducción de Google V2.0 en PHP.
 Es una forma muy sencilla de usare la API de Google para traducir textos con PHP y su espiritu es mantenerlo simple y fácil de usar, sin configuraciones complejas ni nada por el estilo.
 
+## Como instalar
+```bash
+# Clonar repositorio
+$ git clone https://github.com/hstanleycrow/EasyPHPGoogleTranslate
+
+```
+or 
+```bash
+# Instalar usando composer
+$ composer require hstanleycrow/easyphptranslate
+```
+
 ## Ejemplos de uso
 
 Estos ejemplos usan [DotEnv](https://github.com/vlucas/phpdotenv) para configurar la API Key, pero tu puedes configurarla como te plazca.
@@ -88,7 +100,8 @@ $myPrivateApiKey = $_ENV['GOOGLE_API_KEY'];
 $textToTranslate = "Hola Mundo";
 $sourceLanguage = Null;
 $targetLanguage = "fr";
-$translateObj = new EasyPHPTranslate($myPrivateApiKey);
+$translateObj = new EasyPHPTranslate($myPrivateApiKey, new CurlRequest(EasyPHPTranslate::ENDPOINT));
+
 $translatedText = $translateObj->translate($textToTranslate, $targetLanguage);
 $originalTextWordCount = $translateObj->wordCount($textToTranslate);
 $translatedTextWordCount = $translateObj->wordCount($translatedText);
@@ -108,7 +121,8 @@ Con este código puedes traducir un texto a un lenguaje final pero pasando por o
 $textToTranslate = "Hola Mundo, espero que estes bien";
 $sourceLanguage = Null;
 $targetLanguages = ["fr", "pt", "nl", "en"];
-$translateObj = new EasyPHPTranslate($myPrivateApiKey);
+$translateObj = new EasyPHPTranslate($myPrivateApiKey, new CurlRequest(EasyPHPTranslate::ENDPOINT));
+
 $translatedText = $translateObj->multipleTranslate($textToTranslate, $targetLanguages);
 echo "<pre>";
 echo "Text to translate: $textToTranslate" . PHP_EOL;

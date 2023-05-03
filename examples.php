@@ -1,8 +1,8 @@
 <?php
 
-use App\CurlRequest;
 use Dotenv\Dotenv;
-use App\EasyPHPTranslate;
+use hstanleycrow\EasyPHPTranslate;
+use hstanleycrow\EasyPHPcURLRequest\CurlRequest;
 
 require 'vendor/autoload.php';
 $dotenv = Dotenv::createImmutable(__DIR__);
@@ -13,7 +13,7 @@ $myPrivateApiKey = $_ENV['GOOGLE_API_KEY'];
 $textToTranslate = "Hola Mundo";
 $sourceLanguage = Null;
 $targetLanguage = "fr";
-$translateObj = new EasyPHPTranslate($myPrivateApiKey, (new CurlRequest()));
+$translateObj = new EasyPHPTranslate($myPrivateApiKey, (new CurlRequest(EasyPHPTranslate::ENDPOINT)));
 $translatedText = $translateObj->translate($textToTranslate, $targetLanguage);
 $originalTextWordCount = $translateObj->wordCount($textToTranslate);
 $translatedTextWordCount = $translateObj->wordCount($translatedText);
@@ -29,7 +29,7 @@ echo "</pre>";
 $textToTranslate = "Hola Mundo, espero que estes bien";
 $sourceLanguage = Null;
 $targetLanguages = ["fr", "pt", "nl", "en"];
-$translateObj = new EasyPHPTranslate($myPrivateApiKey, new CurlRequest());
+$translateObj = new EasyPHPTranslate($myPrivateApiKey, new CurlRequest(EasyPHPTranslate::ENDPOINT));
 $translatedText = $translateObj->multipleTranslate($textToTranslate, $targetLanguages);
 echo "<pre>";
 echo "Text to translate: $textToTranslate" . PHP_EOL;

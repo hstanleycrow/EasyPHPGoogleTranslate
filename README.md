@@ -31,7 +31,7 @@ $myPrivateApiKey = $_ENV['GOOGLE_API_KEY'];
 $textToTranslate = "Hola Mundo";
 $sourceLanguage = Null;
 $targetLanguage = "fr";
-$translateObj = new EasyPHPTranslate($myPrivateApiKey);
+$translateObj = new EasyPHPTranslate($myPrivateApiKey, (new CurlRequest(EasyPHPTranslate::ENDPOINT)));
 $translatedText = $translateObj->translate($textToTranslate, $targetLanguage);
 $originalTextWordCount = $translateObj->wordCount($textToTranslate);
 $translatedTextWordCount = $translateObj->wordCount($translatedText);
@@ -51,7 +51,8 @@ With this code, you can translate a text to a final language, passing before for
 $textToTranslate = "Hola Mundo, espero que estes bien";
 $sourceLanguage = Null;
 $targetLanguages = ["fr", "pt", "nl", "en"];
-$translateObj = new EasyPHPTranslate($myPrivateApiKey);
+$translateObj = new EasyPHPTranslate($myPrivateApiKey, new CurlRequest(EasyPHPTranslate::ENDPOINT));
+
 $translatedText = $translateObj->multipleTranslate($textToTranslate, $targetLanguages);
 echo "<pre>";
 echo "Text to translate: $textToTranslate" . PHP_EOL;

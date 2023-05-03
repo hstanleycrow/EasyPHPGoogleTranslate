@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace hstanleycrow;
 
-use CurlHandle;
+use hstanleycrow\EasyPHPcURLRequest\CurlRequest;
+
 
 class EasyPHPTranslate
 {
@@ -19,7 +20,6 @@ class EasyPHPTranslate
     {
         $this->apiKey = $apiKey;
         $this->httpRequest = $httpRequest;
-        $this->httpRequest->url(self::ENDPOINT);
     }
 
     public function translate(string $text, string $targetLanguage, ?string $sourceLanguage = null): string
